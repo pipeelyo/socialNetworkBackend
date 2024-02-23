@@ -7,6 +7,7 @@ router
     .get('/', socialUserController.get)
     .get('/:id', socialUserController.getById)
     .get('/name/:name', socialUserController.getByName)
+    .get('/email/:email', socialUserController.getByEmail)
     .post('/', socialUserController.create)
     .put('/:id', socialUserController.update)
     .delete('/:id', socialUserController._delete);

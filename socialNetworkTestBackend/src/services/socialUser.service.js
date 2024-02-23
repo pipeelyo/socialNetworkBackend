@@ -17,6 +17,15 @@ class SocialUserService {
         return res;
     }
 
+    async getByUserEmail(email){
+        const res = await models.SocialUser.findAll({
+            where: {
+                email,
+            }
+        })
+        return res;
+    }
+
     async getById(id){
         const res = await models.SocialUser.findByPk(id);
         return res;

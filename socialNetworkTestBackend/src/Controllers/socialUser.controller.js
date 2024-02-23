@@ -39,6 +39,16 @@ const getByName = async (req, res) => {
     }
 }
 
+const getByEmail = async (req, res) => {
+    try {
+        const { email } = req.params;
+        const response = await service.getByUserEmail(email);
+        res.json(response);
+    } catch (error) {
+        res.status(500).send({success: false, message: error.message});
+    }
+}
+
 const update = async (req, res) => {
     try {
         const { id } = req.params;
@@ -60,4 +70,4 @@ const _delete = async  (req, res) => {
     }
 }
 
-module.exports = { create, get, getById, update, _delete, getByName};
+module.exports = { create, get, getById, update, _delete, getByName, getByEmail};
